@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PR pro vinaře | Omnimedia</title>
+<meta name="description" content="Specialisté na PR pro vinaře. Dostáváme moravská a česká vína do médií. Pro malá a střední vinařství nabízíme analýzu mediální pozice zdarma." />
+<link rel="icon" href="https://omnimedia.cz/wp-content/uploads/2022/09/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#e1003c;
+  --red-dark:#b3002f;
+  --ink:#1c1c1c;
+  --text:#4a4a4a;
+  --muted:#7a7a7a;
+  --line:#ececec;
+  --soft:#f7f7f8;
+  --tint:#fdeef2;
+  --container:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Montserrat',Helvetica,Arial,sans-serif;color:var(--text);line-height:1.75;font-size:16px;background:#fff;-webkit-font-smoothing:antialiased}
+a{color:var(--red);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:var(--container);margin:0 auto;padding:0 28px}
+h1,h2,h3{font-weight:700;line-height:1.18;color:var(--ink);margin:0}
+h1{font-size:clamp(34px,5.5vw,60px);font-weight:800;letter-spacing:-.5px}
+h2{font-size:clamp(28px,4vw,44px);font-weight:700}
+h3{font-size:19px;font-weight:700}
+p{margin:0 0 18px}
+.accent{color:var(--red)}
+section{padding:96px 0}
+
+/* Section heading with centered red rule */
+.head{text-align:center;max-width:760px;margin:0 auto 56px}
+.head h2{margin-bottom:24px}
+.head h2::after{content:"";display:block;width:64px;height:3px;background:var(--red);margin:22px auto 0;border-radius:2px}
+.head p{color:var(--muted);font-size:18px;margin:0}
+.eyebrow{display:block;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+
+/* Buttons */
+.btn{display:inline-block;font-weight:700;font-size:14px;letter-spacing:.4px;text-transform:uppercase;padding:16px 36px;border-radius:40px;transition:.2s;border:2px solid var(--red);cursor:pointer}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--red-dark);border-color:var(--red-dark);color:#fff}
+.btn-outline{background:transparent;color:var(--red)}
+.btn-outline:hover{background:var(--red);color:#fff}
+.btn-white{background:#fff;color:var(--red);border-color:#fff}
+.btn-white:hover{background:rgba(255,255,255,.88)}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--line)}
+.header-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:80px}
+.menu-btn{display:flex;align-items:center;gap:12px;background:none;border:0;font-family:inherit;font-size:14px;font-weight:700;letter-spacing:1.5px;color:var(--ink);cursor:pointer;justify-self:start}
+.menu-btn .bars{display:inline-flex;flex-direction:column;gap:5px}
+.menu-btn .bars span{width:26px;height:2px;background:var(--ink);display:block}
+.brand{justify-self:center}
+.brand img{height:34px;display:block}
+.lang{justify-self:end;font-size:13px;font-weight:700;color:var(--muted)}
+/* dropdown panel */
+.nav-panel{display:none;border-top:1px solid var(--line);background:#fff}
+.nav-panel.open{display:block}
+.nav-panel .container{display:flex;flex-wrap:wrap;gap:8px 36px;padding-top:18px;padding-bottom:22px}
+.nav-panel a{color:var(--ink);font-weight:600;font-size:15px;padding:6px 0}
+.nav-panel a:hover{color:var(--red);text-decoration:none}
+
+/* Hero */
+.hero{text-align:center;padding:118px 0 96px}
+.hero .container{max-width:880px}
+.hero h1{margin-bottom:28px}
+.hero .sub{font-size:clamp(17px,2.1vw,21px);color:var(--muted);max-width:740px;margin:0 auto 38px}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* Recruitment banner */
+.banner{padding:0 0 4px}
+.banner .box{background:var(--tint);border:1px solid #f6c9d6;border-radius:20px;padding:48px 52px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.banner .tag{display:inline-block;background:var(--red);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:16px}
+.banner h2{font-size:clamp(22px,2.8vw,30px);margin-bottom:14px}
+.banner p{margin:0;color:var(--text);font-size:16px}
+.banner .cta{white-space:nowrap}
+
+/* Why */
+.why{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.why h2{margin-bottom:24px}
+.why .lead{font-size:18px;color:var(--text)}
+.why-list{list-style:none;padding:0;margin:0}
+.why-list li{position:relative;padding:16px 0 16px 34px;border-bottom:1px solid var(--line);font-weight:500;color:var(--ink)}
+.why-list li:last-child{border-bottom:0}
+.why-list li::before{content:"";position:absolute;left:0;top:24px;width:12px;height:12px;border-radius:50%;background:var(--red)}
+
+/* Services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 40px}
+.svc{text-align:center}
+.svc .ico{height:58px;margin-bottom:20px;display:flex;align-items:center;justify-content:center}
+.svc .ico svg{width:54px;height:54px;stroke:var(--red);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{margin-bottom:10px}
+.svc p{margin:0;color:var(--muted);font-size:15px}
+
+/* Synergy */
+.synergy{background:var(--soft)}
+.synergy .head{margin-bottom:34px}
+.synergy .copy{max-width:840px;margin:0 auto;text-align:center;font-size:18px;color:var(--text)}
+.synergy .copy strong{color:var(--red)}
+
+/* Counters */
+.counters{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.counter{text-align:center;padding:46px 24px}
+.counter + .counter{border-left:1px solid var(--line)}
+.counter .num{font-size:clamp(36px,4.8vw,52px);font-weight:800;color:var(--red);line-height:1}
+.counter .lbl{margin-top:12px;color:var(--muted);font-size:15px;font-weight:500}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:26px}
+.step{text-align:center}
+.step .n{width:48px;height:48px;border-radius:50%;border:2px solid var(--red);color:var(--red);font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.step .st{display:block;font-weight:700;color:var(--ink);margin-bottom:6px;font-size:15px}
+.step p{margin:0;font-size:14px;color:var(--muted)}
+
+/* About */
+.about{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+.about h2{margin-bottom:22px}
+.about .lead{font-size:18px;color:var(--text)}
+
+/* Final CTA */
+.final{background:var(--red);color:#fff;text-align:center}
+.final h2{color:#fff;margin-bottom:18px}
+.final p{color:rgba(255,255,255,.92);max-width:600px;margin:0 auto 32px;font-size:19px}
+.final .contact{margin-top:26px;font-size:15px;color:rgba(255,255,255,.92)}
+.final .contact a{color:#fff;font-weight:700}
+
+/* Footer */
+.site-footer{background:#fff;border-top:1px solid var(--line);padding:54px 0 40px;text-align:center}
+.site-footer img{height:30px;margin-bottom:20px}
+.site-footer .info{color:var(--muted);font-size:14.5px;line-height:1.9}
+.site-footer .info a{color:var(--muted)}
+.site-footer .info b{color:var(--ink)}
+.site-footer .legal{margin-top:20px;font-size:13px;color:#9a9a9a}
+.site-footer .legal a{color:#9a9a9a}
+
+@media(max-width:900px){
+  .why,.about{grid-template-columns:1fr;gap:34px}
+  .svc-grid{grid-template-columns:repeat(2,1fr);gap:42px 32px}
+  .counters{grid-template-columns:1fr}
+  .counter + .counter{border-left:0;border-top:1px solid var(--line)}
+  .steps{grid-template-columns:1fr 1fr 1fr}
+  .banner .box{grid-template-columns:1fr;text-align:center}
+  .banner .cta{justify-self:center}
+}
+@media(max-width:600px){
+  section{padding:64px 0}
+  .svc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .header-inner{grid-template-columns:auto 1fr auto}
+  .menu-btn span.txt{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container header-inner">
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('navPanel').classList.toggle('open')">
+      <span class="bars"><span></span><span></span><span></span></span>
+      <span class="txt">MENU</span>
+    </button>
+    <a class="brand" href="https://www.omnimedia.cz/" aria-label="Omnimedia">
+      <img src="https://omnimedia.cz/wp-content/uploads/2022/09/omnimedia-logo-min.svg" alt="Omnimedia" />
+    </a>
+    <a class="lang" href="https://omnimedia.cz/en/">CS</a>
+  </div>
+  <div class="nav-panel" id="navPanel">
+    <div class="container">
+      <a href="https://www.omnimedia.cz/#nase-sluzby">Naše služby</a>
+      <a href="https://www.omnimedia.cz/#o-nas">O nás</a>
+      <a href="https://www.omnimedia.cz/#reference">Reference</a>
+      <a href="https://www.omnimedia.cz/#nas-tym">Náš tým</a>
+      <a href="https://www.omnimedia.cz/#kontakty">Kontakty</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">PR pro vinaře</span>
+    <h1>Skvělé víno a vinařství si zaslouží, aby o něm bylo <span class="accent">slyšet</span>.</h1>
+    <p class="sub">Dlouhé roky jsme zajišťovali mediální prezentaci moravských a českých vín na národní úrovni. Teď tu zkušenost — média, novináře i příběhy — dáváme do služeb vašeho vinařství.</p>
+    <div class="hero-actions">
+      <a href="#kontakt" class="btn btn-primary">Nezávazná konzultace</a>
+      <a href="#jak-to-probiha" class="btn btn-outline">Jak pracujeme</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECRUITMENT BANNER ============ -->
+<div class="banner">
+  <div class="container">
+    <div class="box">
+      <div>
+        <span class="tag">Nabídka zdarma</span>
+        <h2>Jste malé nebo středně velké vinařství? Máme pro vás nezávazný dárek.</h2>
+        <p>Zmapujeme vám zdarma mediální pozici vašeho vinařství. Připravíme analýzu toho, jak a kde se o vás dnes píše, srovnáme vás s konkurencí a ukážeme, kde máte nevyužitý komunikační potenciál. Stačí se nám ozvat — analýzu dostanete zdarma a bez závazků, i když za případnou tekutou odměnu se jistě zlobit nebudeme. Teprve pak se společně rozhodneme, jestli a jak má smysl spolupracovat dál.</p>
+      </div>
+      <div class="cta"><a href="#kontakt" class="btn btn-primary">Chci analýzu zdarma</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PROČ PR ============ -->
+<section id="proc-pr">
+  <div class="container why">
+    <div>
+      <span class="eyebrow">Proč PR</span>
+      <h2>Vyrobit výborné víno je jen půlka práce.</h2>
+      <p class="lead">Úspěch na soutěži, uvedení nového ročníku, výjimečná řada, otevřené sklepy pro turisty — to všechno jsou skvělé příběhy. Jen se k nim většinou mimo vaše sociální média nebo newsletter prakticky nikdo nedostane, protože nemáte kapacity, kontakty na novináře ani jistotu, kdy a komu téma nabídnout.</p>
+      <p>To je naše práce. Víme, o čem a kdy česká média o víně píšou, a umíme vás i vaše víno dostat tam, kde ho uvidí lidé, kteří ho mají koupit a ochutnat.</p>
+    </div>
+    <div>
+      <ul class="why-list">
+        <li>Získali jste ocenění a chcete ho proměnit v publicitu, ne jen v diplom na zdi.</li>
+        <li>Otevíráte sklep, pořádáte akci nebo zahajujete turistickou sezónu a potřebujete návštěvníky.</li>
+        <li>Uvádíte nový ročník nebo řadu a chcete, aby se o ní vědělo.</li>
+        <li>Nebo chcete, aby se jméno vašeho vinařství v médiích průběžně připomínalo.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLUŽBY ============ -->
+<section id="sluzby">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Co pro vinařství děláme</span>
+      <h2>Kompletní PR pod jednou střechou</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h2l4 4V6L6 10H4a1 1 0 0 0-1 1Z"/><path d="M14 8.5a4 4 0 0 1 0 7"/><path d="M16.5 6a7 7 0 0 1 0 12"/></svg></div>
+        <h3>Vztahy s médii</h3>
+        <p>Dostáváme vaše vína, ocenění a příběhy do médií — od gastro a lifestyle titulů po zpravodajství.</p>
+      </div>
+      <div class="svc">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h0"/><path d="M16 3l1.2 2.4L20 6.5l-2.4 1.2L16 10l-1.2-2.3L12 6.5l2.8-1.1L16 3Z"/></svg></div>
+        <h3>Příběh značky a storytelling</h3>
+        <p>Najdeme a vyprávíme to, čím je vaše vinařství jiné. Bez toho je každé víno jen láhev na regále.</p>
+      </div>
+      <div class="svc">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h13v13a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2V5Z"/><path d="M19 8h1a1 1 0 0 1 1 1v9a2 2 0 0 1-2 2"/><path d="M7 8h7M7 11.5h7M7 15h5"/></svg></div>
+        <h3>Tipy a redakční doporučení</h3>
+        <p>Pravidelně nabízíme novinářům konkrétní vína k sezónním tématům, k jídlu, k příležitosti — vaše víno se tak objeví v redakčních tipech a případně i testech.</p>
+      </div>
+      <div class="svc">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1Z"/><path d="M14 7l3 3"/></svg></div>
+        <h3>Copywriting a obsah</h3>
+        <p>Web, popisy vín, newslettery, katalogy, retailové podklady — texty, které prodávají a drží jednotný hlas značky.</p>
+      </div>
+      <div class="svc">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9.2A3.8 3.8 0 0 1 12 8a3.8 3.8 0 0 1 7 2.8C19 15.6 12 20 12 20Z"/></svg></div>
+        <h3>Sociální sítě a online</h3>
+        <p>Obsah a komunikace, které drží vinařství na očích i mezi kampaněmi.</p>
+      </div>
+      <div class="svc">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6l7-3Z"/><path d="M9 11.5l2 2 4-4"/></svg></div>
+        <h3>Konzultace a krizová komunikace</h3>
+        <p>Poradíme se strategií i ve chvíli, kdy je potřeba reagovat rychle a správně.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SYNERGIE ============ -->
+<section class="synergy" id="pro-koho">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Pro koho jsme</span>
+      <h2>Síla je ve společné komunikaci</h2>
+    </div>
+    <div class="copy">
+      <p>Nejsme agentura jen pro největší a nejbohatší vinařství. Naopak — rádi pracujeme pro více menších vinařství a využíváme synergii jejich společné komunikace. V rámci jednoho tématu a jednoho oslovení konkrétního média nebo novináře dokážeme odprezentovat hned několik vinařství najednou.</p>
+      <p>Každé z nich tak získá <strong>násobně větší mediální prostor</strong>, než na jaký by jeho samostatný rozpočet sám o sobě stačil. Platíte za své PR, ale těžíte z efektu celé skupiny — a to je výhoda, kterou vám agentura pracující pro jediné vinařství nikdy nenabídne.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VÝSLEDKY ============ -->
+<section id="vysledky">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Výsledky, které mluví za nás</span>
+      <h2>Co umíme a co jsme dokázali</h2>
+      <p>Roky jsme zajišťovali mediální prezentaci moravských a českých vín na národní úrovni. Jen za jediný rok to znamenalo:</p>
+    </div>
+    <div class="counters">
+      <div class="counter"><div class="num">1 506</div><div class="lbl">mediálních výstupů za rok</div></div>
+      <div class="counter"><div class="num">900+ mil.</div><div class="lbl">kumulovaný zásah v české populaci</div></div>
+      <div class="counter"><div class="num">36,8 mil. Kč</div><div class="lbl">hodnota získaného mediálního prostoru</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JAK TO PROBÍHÁ ============ -->
+<section class="synergy" id="jak-to-probiha">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Jak spolupráce probíhá</span>
+      <h2>Jednoduchý začátek</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><span class="st">Analýza zdarma</span><p>Uděláme vám zdarma analýzu mediální pozice vašeho vinařství.</p></div>
+      <div class="step"><div class="n">2</div><span class="st">Poznáme se</span><p>Nezávazně probereme vaše vinařství, cíle a rozpočet.</p></div>
+      <div class="step"><div class="n">3</div><span class="st">Navrhneme plán</span><p>Témata, kalendář a konkrétní mediální příležitosti na míru.</p></div>
+      <div class="step"><div class="n">4</div><span class="st">Komunikujeme</span><p>Píšeme, oslovujeme novináře, vyjednáváme prostor.</p></div>
+      <div class="step"><div class="n">5</div><span class="st">Dodáváme výsledky</span><p>Pravidelný přehled výstupů a jejich hodnoty.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O AGENTUŘE ============ -->
+<section id="o-agenture">
+  <div class="container about">
+    <div>
+      <span class="eyebrow">O agentuře</span>
+      <h2>Omnimedia — PR, které rozumí vínu</h2>
+    </div>
+    <div>
+      <p class="lead">Jsme PR agentura s bezmála dvacetiletou specializací na komunikaci vína. Roky jsme stáli za mediální prezentací moravských a českých vín a tu samou péči i kontakty dnes nabízíme jednotlivým vinařstvím.</p>
+      <p>Známe obor zevnitř, mluvíme jazykem novinářů i vinařů a každou korunu rozpočtu proměňujeme v měřitelnou publicitu. Více o agentuře na <a href="https://www.omnimedia.cz/">www.omnimedia.cz</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ZÁVĚREČNÉ CTA ============ -->
+<section class="final" id="kontakt">
+  <div class="container">
+    <h2>Pojďme dostat vaše víno mezi lidi</h2>
+    <p>Ozvěte se nám. Nezávazně probereme, co by PR mohlo pro vaše vinařství udělat — bez závazků a bez frází.</p>
+    <a href="mailto:info@omnimedia.cz?subject=Z%C3%A1jem%20o%20PR%20pro%20vina%C5%99stv%C3%AD" class="btn btn-white">Domluvit konzultaci</a>
+    <div class="contact">nebo nám napište na <a href="mailto:info@omnimedia.cz">info@omnimedia.cz</a> · zavolejte <a href="tel:+420221419220">+420&nbsp;221&nbsp;419&nbsp;220</a></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <img src="https://omnimedia.cz/wp-content/uploads/2022/09/omnimedia-logo-min.svg" alt="Omnimedia" />
+    <div class="info">
+      <b>Omnimedia s.r.o.</b> · Jeseniova 51, 130 00 Praha 3<br>
+      <a href="tel:+420221419220">+420 221 419 220</a> · <a href="mailto:info@omnimedia.cz">info@omnimedia.cz</a> · IČ: 264 58 055 · DIČ: CZ26458055
+    </div>
+    <div class="legal">
+      © Omnimedia s.r.o. ·
+      <a href="https://omnimedia.cz/zasady-cookies/">Zásady cookies</a> ·
+      <a href="https://omnimedia.cz/prohlaseni-o-zpracovani-osobnich-udaju/">Prohlášení o zpracování osobních údajů</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
