@@ -3,6 +3,30 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Google Consent Mode v2 — výchozí stav: vše odmítnuto, dokud návštěvník nesouhlasí -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'functionality_storage': 'granted',
+    'security_storage': 'granted',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('omn_consent') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -191,6 +215,24 @@ section{padding:45px 0}
 .site-footer .info b{color:var(--ink)}
 .site-footer .legal{margin-top:20px;font-size:13px;color:#9a9a9a}
 .site-footer .legal a{color:#9a9a9a}
+
+/* Cookie lišta */
+.cookie-bar{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(0,0,0,.10)}
+.cookie-bar[hidden]{display:none}
+.cookie-inner{max-width:var(--container);margin:0 auto;padding:16px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between}
+.cookie-txt{margin:0;font-size:13.5px;color:var(--text);line-height:1.6;flex:1 1 420px}
+.cookie-txt a{color:var(--red)}
+.cookie-actions{display:flex;gap:12px;flex-shrink:0}
+.btn-cookie{font-family:inherit;font-weight:700;font-size:13px;letter-spacing:.3px;padding:11px 24px;border-radius:30px;cursor:pointer;border:2px solid var(--red);transition:.2s}
+.btn-cookie.solid{background:var(--red);color:#fff}
+.btn-cookie.solid:hover{background:var(--red-dark);border-color:var(--red-dark)}
+.btn-cookie.ghost{background:#fff;color:var(--red)}
+.btn-cookie.ghost:hover{background:var(--tint)}
+@media(max-width:600px){
+  .cookie-inner{padding:14px 20px;gap:14px}
+  .cookie-actions{width:100%}
+  .btn-cookie{flex:1}
+}
 
 @media(max-width:1140px){
   .counters{grid-template-columns:1fr}
@@ -419,6 +461,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </footer>
+
+<!-- Cookie lišta -->
+<div id="cookieBar" class="cookie-bar" role="dialog" aria-label="Souhlas s cookies" hidden>
+  <div class="cookie-inner">
+    <p class="cookie-txt">Používáme cookies k měření návštěvnosti a marketingu. Kliknutím na <strong>Přijmout vše</strong> souhlasíte s jejich používáním. Více v <a href="https://omnimedia.cz/zasady-cookies/" target="_blank" rel="noopener">zásadách cookies</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn-cookie ghost" id="cookieReject" type="button">Odmítnout</button>
+      <button class="btn-cookie solid" id="cookieAccept" type="button">Přijmout vše</button>
+    </div>
+  </div>
+</div>
+<script>
+/* Cookie lišta + Google Consent Mode v2 update */
+(function () {
+  var bar = document.getElementById('cookieBar');
+  if (!bar) return;
+  var stored = null;
+  try { stored = localStorage.getItem('omn_consent'); } catch (e) {}
+  if (!stored) bar.hidden = false;
+  function decide(choice) {
+    try { localStorage.setItem('omn_consent', choice); } catch (e) {}
+    var v = choice === 'granted' ? 'granted' : 'denied';
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage': v, 'ad_user_data': v, 'ad_personalization': v, 'analytics_storage': v
+      });
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'consent_update', consent_choice: choice });
+    bar.hidden = true;
+  }
+  var a = document.getElementById('cookieAccept');
+  var r = document.getElementById('cookieReject');
+  if (a) a.addEventListener('click', function () { decide('granted'); });
+  if (r) r.addEventListener('click', function () { decide('denied'); });
+})();
+</script>
 
 <script>
 /* Ochrana e-mailu před spamboty: adresa se v HTML nikdy nevyskytuje celá,
