@@ -5,7 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>PR pro vinaře | Omnimedia</title>
 <meta name="description" content="Specialisté na PR pro vinaře. Dostáváme moravská a česká vína do médií. Pro malá a střední vinařství nabízíme analýzu mediální pozice zdarma." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://vino.omnimedia.cz/" />
 <link rel="icon" href="https://omnimedia.cz/wp-content/uploads/2022/09/cropped-favicon-192x192.png" sizes="192x192" />
+<!-- Open Graph / sdílení odkazu -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="cs_CZ" />
+<meta property="og:site_name" content="Omnimedia" />
+<meta property="og:title" content="PR pro vinaře | Omnimedia" />
+<meta property="og:description" content="Specialisté na PR pro vinaře. Dostáváme moravská a česká vína do médií. Pro malá a střední vinařství analýza mediální pozice zdarma." />
+<meta property="og:url" content="https://vino.omnimedia.cz/" />
+<meta property="og:image" content="https://omnimedia.cz/wp-content/uploads/2022/09/cropped-favicon-270x270.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="PR pro vinaře | Omnimedia" />
+<meta name="twitter:description" content="Specialisté na PR pro vinaře. Dostáváme moravská a česká vína do médií." />
+<meta name="twitter:image" content="https://omnimedia.cz/wp-content/uploads/2022/09/cropped-favicon-270x270.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Omnimedia — PR pro vinaře",
+  "url": "https://vino.omnimedia.cz/",
+  "image": "https://omnimedia.cz/wp-content/uploads/2022/09/omnimedia-logo-min.svg",
+  "description": "PR agentura specializovaná na komunikaci vína. Dostáváme moravská a česká vína do médií.",
+  "telephone": "+420221419220",
+  "areaServed": "CZ",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Jeseniova 51",
+    "postalCode": "130 00",
+    "addressLocality": "Praha 3",
+    "addressCountry": "CZ"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Omnimedia s.r.o.",
+    "url": "https://www.omnimedia.cz/"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
@@ -110,7 +148,7 @@ section{padding:96px 0}
 .counters{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden}
 .counter{text-align:center;padding:46px 24px}
 .counter + .counter{border-left:1px solid var(--line)}
-.counter .num{font-size:clamp(36px,4.8vw,52px);font-weight:800;color:var(--red);line-height:1}
+.counter .num{font-size:clamp(28px,4.4vw,40px);font-weight:800;color:var(--red);line-height:1;white-space:nowrap}
 .counter .lbl{margin-top:12px;color:var(--muted);font-size:15px;font-weight:500}
 
 /* Steps */
@@ -141,11 +179,13 @@ section{padding:96px 0}
 .site-footer .legal{margin-top:20px;font-size:13px;color:#9a9a9a}
 .site-footer .legal a{color:#9a9a9a}
 
+@media(max-width:1140px){
+  .counters{grid-template-columns:1fr}
+  .counter + .counter{border-left:0;border-top:1px solid var(--line)}
+}
 @media(max-width:900px){
   .why,.about{grid-template-columns:1fr;gap:34px}
   .svc-grid{grid-template-columns:repeat(2,1fr);gap:42px 32px}
-  .counters{grid-template-columns:1fr}
-  .counter + .counter{border-left:0;border-top:1px solid var(--line)}
   .steps{grid-template-columns:1fr 1fr 1fr}
   .banner .box{grid-template-columns:1fr;text-align:center}
   .banner .cta{justify-self:center}
@@ -189,7 +229,7 @@ section{padding:96px 0}
   <div class="container">
     <span class="eyebrow">PR pro vinaře</span>
     <h1>Skvělé víno a vinařství si zaslouží, aby o něm bylo <span class="accent">slyšet</span>.</h1>
-    <p class="sub">Dlouhé roky jsme zajišťovali mediální prezentaci moravských a českých vín na národní úrovni. Teď tu zkušenost — média, novináře i příběhy — dáváme do služeb vašeho vinařství.</p>
+    <p class="sub">Dlouhé roky jsme zajišťovali mediální prezentaci moravských a českých vín na národní úrovni. Pomohli jsme s medializací desítkám vinařů, spolků a institucí. Teď tu zkušenost — média, novináře i příběhy — dáváme do služeb vašeho vinařství.</p>
   </div>
 </section>
 
@@ -291,9 +331,9 @@ section{padding:96px 0}
       <p>Roky jsme zajišťovali mediální prezentaci moravských a českých vín na národní úrovni. Jen za jediný rok to znamenalo:</p>
     </div>
     <div class="counters">
-      <div class="counter"><div class="num">1 506</div><div class="lbl">mediálních výstupů za rok</div></div>
-      <div class="counter"><div class="num">900+ mil.</div><div class="lbl">kumulovaný zásah v české populaci</div></div>
-      <div class="counter"><div class="num">36,8 mil. Kč</div><div class="lbl">hodnota získaného mediálního prostoru</div></div>
+      <div class="counter"><div class="num">1&nbsp;506</div><div class="lbl">mediálních výstupů za rok</div></div>
+      <div class="counter"><div class="num">900+&nbsp;mil.</div><div class="lbl">kumulovaný zásah v české populaci</div></div>
+      <div class="counter"><div class="num">36,8&nbsp;mil.&nbsp;Kč</div><div class="lbl">hodnota získaného mediálního prostoru</div></div>
     </div>
   </div>
 </section>
