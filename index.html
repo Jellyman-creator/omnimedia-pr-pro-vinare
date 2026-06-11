@@ -473,13 +473,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 <script>
-/* Cookie lišta + Google Consent Mode v2 update */
+/* Cookie lišta + Google Consent Mode v2 + zápis souhlasu do Google Sheetu */
 (function () {
+  var LOG_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzIRZ3DZBNkSck6Fz2V5q2ICHWhupj2COrwXE65qYtrGwi118vWDahruxKIJDizjxMe-Q/exec';
+  var LOG_SECRET = 'omn-vino-7Qd2k9';
+  var CONSENT_VERSION = '2026-06-11';
+
   var bar = document.getElementById('cookieBar');
   if (!bar) return;
+
+  function anonId() {
+    try {
+      var id = localStorage.getItem('omn_cid');
+      if (!id) { id = 'c-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10); localStorage.setItem('omn_cid', id); }
+      return id;
+    } catch (e) { return ''; }
+  }
+
+  function logConsent(choice) {
+    var v = choice === 'granted' ? 'granted' : 'denied';
+    var payload = JSON.stringify({
+      secret: LOG_SECRET, choice: choice, version: CONSENT_VERSION,
+      analytics_storage: v, ad_storage: v,
+      page: location.href, language: navigator.language || '',
+      userAgent: navigator.userAgent || '', anonId: anonId()
+    });
+    try {
+      if (navigator.sendBeacon) { navigator.sendBeacon(LOG_ENDPOINT, payload); }
+      else { fetch(LOG_ENDPOINT, { method: 'POST', body: payload, keepalive: true, mode: 'no-cors' }); }
+    } catch (e) {}
+  }
+
   var stored = null;
   try { stored = localStorage.getItem('omn_consent'); } catch (e) {}
   if (!stored) bar.hidden = false;
+
   function decide(choice) {
     try { localStorage.setItem('omn_consent', choice); } catch (e) {}
     var v = choice === 'granted' ? 'granted' : 'denied';
@@ -490,8 +518,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'consent_update', consent_choice: choice });
+    logConsent(choice);
     bar.hidden = true;
   }
+
   var a = document.getElementById('cookieAccept');
   var r = document.getElementById('cookieReject');
   if (a) a.addEventListener('click', function () { decide('granted'); });
