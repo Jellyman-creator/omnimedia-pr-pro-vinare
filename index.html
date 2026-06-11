@@ -73,8 +73,7 @@ section{padding:96px 0}
 .hero .container{max-width:860px}
 .hero .eyebrow{margin-bottom:12px}
 .hero h1{margin-bottom:16px}
-.hero .sub{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:720px;margin:0 auto 24px}
-.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero .sub{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:720px;margin:0 auto 8px}
 
 /* Recruitment banner */
 .banner{padding:0 0 4px}
@@ -87,7 +86,7 @@ section{padding:96px 0}
 /* Why */
 .why{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
 .why h2{margin-bottom:24px}
-.why .lead{font-size:18px;color:var(--text)}
+.why .lead{font-size:16px;color:var(--text)}
 .why-list{list-style:none;padding:0;margin:0}
 .why-list li{position:relative;padding:16px 0 16px 34px;border-bottom:1px solid var(--line);font-weight:500;color:var(--ink)}
 .why-list li:last-child{border-bottom:0}
@@ -124,7 +123,7 @@ section{padding:96px 0}
 /* About */
 .about{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
 .about h2{margin-bottom:22px}
-.about .lead{font-size:18px;color:var(--text)}
+.about .lead{font-size:16px;color:var(--text)}
 
 /* Final CTA */
 .final{background:var(--red);color:#fff;text-align:center}
@@ -191,10 +190,6 @@ section{padding:96px 0}
     <span class="eyebrow">PR pro vinaře</span>
     <h1>Skvělé víno a vinařství si zaslouží, aby o něm bylo <span class="accent">slyšet</span>.</h1>
     <p class="sub">Dlouhé roky jsme zajišťovali mediální prezentaci moravských a českých vín na národní úrovni. Teď tu zkušenost — média, novináře i příběhy — dáváme do služeb vašeho vinařství.</p>
-    <div class="hero-actions">
-      <a href="#kontakt" class="btn btn-primary">Nezávazná konzultace</a>
-      <a href="#jak-to-probiha" class="btn btn-outline">Jak pracujeme</a>
-    </div>
   </div>
 </section>
 
@@ -203,7 +198,6 @@ section{padding:96px 0}
   <div class="container">
     <div class="box">
       <div>
-        <span class="tag">Nabídka zdarma</span>
         <h2>Jste malé nebo středně velké vinařství? Máme pro vás nezávazný dárek.</h2>
         <p>Zmapujeme vám zdarma mediální pozici vašeho vinařství. Připravíme analýzu toho, jak a kde se o vás dnes píše, srovnáme vás s konkurencí a ukážeme, kde máte nevyužitý komunikační potenciál. Stačí se nám ozvat — analýzu dostanete zdarma a bez závazků, i když za případnou tekutou odměnu se jistě zlobit nebudeme. Teprve pak se společně rozhodneme, jestli a jak má smysl spolupracovat dál.</p>
       </div>
@@ -340,8 +334,8 @@ section{padding:96px 0}
   <div class="container">
     <h2>Pojďme dostat vaše víno mezi lidi</h2>
     <p>Ozvěte se nám. Nezávazně probereme, co by PR mohlo pro vaše vinařství udělat — bez závazků a bez frází.</p>
-    <a href="mailto:info@omnimedia.cz?subject=Z%C3%A1jem%20o%20PR%20pro%20vina%C5%99stv%C3%AD" class="btn btn-white">Domluvit konzultaci</a>
-    <div class="contact">nebo nám napište na <a href="mailto:info@omnimedia.cz">info@omnimedia.cz</a> · zavolejte <a href="tel:+420221419220">+420&nbsp;221&nbsp;419&nbsp;220</a></div>
+    <a class="btn btn-white js-eml" data-u="info" data-d="omnimedia.cz" data-subject="Z%C3%A1jem%20o%20PR%20pro%20vina%C5%99stv%C3%AD" href="#kontakt">Domluvit konzultaci</a>
+    <div class="contact">nebo nám napište na <a class="js-eml" data-u="info" data-d="omnimedia.cz" data-text="1" href="#kontakt">info(zavináč)omnimedia.cz</a> · zavolejte <a href="tel:+420221419220">+420&nbsp;221&nbsp;419&nbsp;220</a></div>
   </div>
 </section>
 
@@ -351,7 +345,7 @@ section{padding:96px 0}
     <img src="https://omnimedia.cz/wp-content/uploads/2022/09/omnimedia-logo-min.svg" alt="Omnimedia" />
     <div class="info">
       <b>Omnimedia s.r.o.</b> · Jeseniova 51, 130 00 Praha 3<br>
-      <a href="tel:+420221419220">+420 221 419 220</a> · <a href="mailto:info@omnimedia.cz">info@omnimedia.cz</a> · IČ: 264 58 055 · DIČ: CZ26458055
+      <a href="tel:+420221419220">+420 221 419 220</a> · <a class="js-eml" data-u="info" data-d="omnimedia.cz" data-text="1" href="#">info(zavináč)omnimedia.cz</a> · IČ: 264 58 055 · DIČ: CZ26458055
     </div>
     <div class="legal">
       © Omnimedia s.r.o. ·
@@ -360,6 +354,19 @@ section{padding:96px 0}
     </div>
   </div>
 </footer>
+
+<script>
+/* Ochrana e-mailu před spamboty: adresa se v HTML nikdy nevyskytuje celá,
+   sestaví se až v prohlížeči z data-atributů. */
+(function () {
+  document.querySelectorAll('.js-eml').forEach(function (el) {
+    var addr = el.getAttribute('data-u') + '@' + el.getAttribute('data-d');
+    var subj = el.getAttribute('data-subject');
+    el.setAttribute('href', 'mailto:' + addr + (subj ? '?subject=' + subj : ''));
+    if (el.getAttribute('data-text')) el.textContent = addr;
+  });
+})();
+</script>
 
 </body>
 </html>
