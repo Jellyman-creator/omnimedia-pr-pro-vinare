@@ -490,6 +490,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   })();
 </script>
 
+<!-- Meta Pixel (1043228978157181) — načte se a měří až po souhlasu -->
+<script>
+  window.fireMetaPixel = function () {
+    if (window.fbq) { return; }
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+      t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1043228978157181');
+    fbq('track', 'PageView');
+  };
+  try { if (localStorage.getItem('omn_consent') === 'granted') window.fireMetaPixel(); } catch (e) {}
+</script>
+
 <script>
 /* Cookie lišta + Google Consent Mode v2 + zápis souhlasu do Google Sheetu */
 (function () {
@@ -538,6 +554,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     window.dataLayer.push({ event: 'consent_update', consent_choice: choice });
     logConsent(choice);
     if (choice === 'granted' && window.fireSklikRtg) window.fireSklikRtg();
+    if (choice === 'granted' && window.fireMetaPixel) window.fireMetaPixel();
     bar.hidden = true;
   }
 
